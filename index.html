@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="hi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RK Foundation - Solar EPC & Clean Energy Solutions Bhopal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Vanilla Tilt for 3D Cards -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <!-- Three.js & OrbitControls for 3D Solar Simulation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        solar: {
+                            orange: '#f97316',
+                            amber: '#f59e0b',
+                            yellow: '#fbbf24',
+                            blue: '#0284c7',
+                            navy: '#0f172a',
+                            green: '#10b981',
+                            light: '#f8fafc'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #1e293b; }
+        .glass-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.9); }
+        .hero-gradient { background: radial-gradient(circle at 75% 25%, rgba(254, 243, 199, 0.8) 0%, rgba(224, 242, 254, 0.6) 45%, rgba(248, 250, 252, 1) 100%); }
+        .sun-glow { box-shadow: 0 20px 50px -10px rgba(249, 115, 22, 0.25); }
+        .card-shadow { box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
+        .badge-pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-amber-400 selection:text-slate-900">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-emerald-600 text-white text-xs font-semibold py-2 px-4 text-center tracking-wide shadow-sm">
+        ⚡ <span>PM Surya Ghar Muft Bijli Yojana: Get Up To ₹78,000 Direct Govt. Subsidy | MSME & Gumasta Certified EPC Bhopal</span>
+    </div>
+
+    <!-- Main Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-header shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center space-x-3">
+                <img src="RK.png" alt="RK Foundation Logo" class="h-14 sm:h-16 w-auto object-contain">
+            </a>
+
+            <!-- Nav Links -->
+            <div class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+                <a href="#home" class="hover:text-orange-600 transition-colors">Home</a>
+                <a href="#simulation" class="hover:text-orange-600 transition-colors">3D Solar Flow</a>
+                <a href="#calculator" class="hover:text-orange-600 transition-colors">Subsidy Calculator</a>
+                <a href="#services" class="hover:text-orange-600 transition-colors">Services</a>
+                <a href="#why-us" class="hover:text-orange-600 transition-colors">Why Us</a>
+                <a href="#contact" class="hover:text-orange-600 transition-colors">Contact</a>
+            </div>
+
+            <!-- Call & WhatsApp CTA -->
+            <div class="flex items-center space-x-3">
+                <a href="tel:7000944370" class="hidden sm:flex items-center space-x-2 text-sm font-bold text-slate-700 bg-slate-100 hover:bg-slate-200 px-4 py-2.5 rounded-full transition border border-slate-200">
+                    <i data-lucide="phone-call" class="w-4 h-4 text-orange-500"></i>
+                    <span>7000944370</span>
+                </a>
+                <a href="https://wa.me/917000944370?text=Hello%20RK%20Foundation,%20I%20want%20a%20free%20solar%20rooftop%20consultation." target="_blank" class="bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold text-sm px-5 py-2.5 rounded-full transition shadow-md shadow-orange-500/30 flex items-center space-x-2">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>Free Solar Quote</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with 3D Interactive Installation Flow -->
+    <section id="home" class="hero-gradient pt-8 pb-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+
+            <!-- Top Hero Header -->
+            <div class="text-center max-w-4xl mx-auto mb-8 space-y-4">
+                <div class="inline-flex items-center space-x-2 bg-amber-100 border border-amber-300 text-amber-900 px-4 py-1.5 rounded-full text-xs font-bold shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-orange-500 badge-pulse"></span>
+                    <span>Authorized Rooftop Solar & Electrical EPC | Bhopal, M.P.</span>
+                </div>
+
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black font-heading text-slate-900 leading-[1.18] tracking-tight">
+                    Power Your Home With <br class="hidden sm:inline">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-500 to-emerald-600">Clean Sun Energy & Free Subsidy</span>
+                </h1>
+
+                <p class="text-sm sm:text-base text-slate-600 font-medium max-w-2xl mx-auto leading-relaxed">
+                    <strong>RK Foundation</strong> provides complete Turnkey On-Grid Solar, DISCOM Net-Metering, and certified LT/HT Electrical EPC across Madhya Pradesh.
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-wrap items-center justify-center gap-3 pt-2">
+                    <a href="#calculator" class="bg-orange-500 hover:bg-orange-600 text-white font-bold px-6 py-3.5 rounded-xl shadow-lg shadow-orange-500/30 transition flex items-center space-x-2 text-sm">
+                        <i data-lucide="calculator" class="w-4 h-4"></i>
+                        <span>Check Your Subsidy & ROI</span>
+                    </a>
+                    <a href="https://wa.me/917000944370?text=Hello%20RK%20Foundation,%20please%20book%20a%20free%20solar%20site%20survey." target="_blank" class="bg-white hover:bg-slate-50 text-slate-800 font-bold px-6 py-3.5 rounded-xl border border-slate-300 transition shadow-sm flex items-center space-x-2 text-sm">
+                        <i data-lucide="sun-medium" class="w-4 h-4 text-amber-500"></i>
+                        <span>Book Free Site Survey</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3D Interactive Solar Installation Simulation Card -->
+            <div id="simulation" class="bg-white rounded-3xl border-2 border-slate-200 card-shadow overflow-hidden relative">
+
+                <!-- Simulation Header Bar -->
+                <div class="bg-slate-900 text-white px-6 py-4 flex flex-wrap items-center justify-between gap-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-3 h-3 rounded-full bg-emerald-400 badge-pulse"></div>
+                        <span class="font-bold text-sm sm:text-base font-heading">Interactive 3D Solar Installation Flow (3D सोलर वर्किंग मॉडल)</span>
+                    </div>
+                    <div class="flex items-center space-x-2 text-xs text-slate-300 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
+                        <i data-lucide="mouse-pointer" class="w-3.5 h-3.5 text-amber-400"></i>
+                        <span>Drag / Touch to Rotate in 3D | Scroll to Zoom</span>
+                    </div>
+                </div>
+
+                <!-- 3D Canvas Viewport -->
+                <div class="relative w-full h-[400px] sm:h-[480px] lg:h-[540px] bg-gradient-to-b from-sky-100 via-blue-50 to-slate-100">
+                    <canvas id="solar3dCanvas" class="w-full h-full cursor-grab active:cursor-grabbing block"></canvas>
+
+                    <!-- Real-Time Legend Overlay -->
+                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur p-3 sm:p-4 rounded-2xl border border-slate-200 text-xs shadow-md max-w-[260px] pointer-events-none hidden sm:block">
+                        <div class="font-bold text-slate-900 mb-2 flex items-center space-x-1.5">
+                            <i data-lucide="activity" class="w-4 h-4 text-emerald-600"></i>
+                            <span>Live Power Flow</span>
+                        </div>
+                        <div class="space-y-1.5 text-[11px] text-slate-600">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded bg-amber-500 shrink-0"></span>
+                                <span><strong>DC Current:</strong> Panel → Inverter</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded bg-sky-600 shrink-0"></span>
+                                <span><strong>AC Current:</strong> Inverter → Net-Meter</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="w-3 h-3 rounded bg-emerald-500 shrink-0"></span>
+                                <span><strong>Grid Export:</strong> Meter → Bijli Khamba</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4 Step Energy Flow Breakdown Bar -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 bg-slate-50 text-slate-800 border-t border-slate-200">
+
+                    <!-- Step 1 -->
+                    <div class="p-5 flex items-start space-x-3">
+                        <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-black font-heading shrink-0 text-sm">
+                            1
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-slate-900">Rooftop Solar Array</div>
+                            <div class="text-xs text-slate-500 mt-0.5">Suraj ki dhoop se DC bijli banata hai.</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="p-5 flex items-start space-x-3">
+                        <div class="w-9 h-9 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center font-black font-heading shrink-0 text-sm">
+                            2
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-slate-900">On-Grid Inverter</div>
+                            <div class="text-xs text-slate-500 mt-0.5">DC bijli ko ghar ke use hone wale AC me badalta hai.</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="p-5 flex items-start space-x-3">
+                        <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-black font-heading shrink-0 text-sm">
+                            3
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-slate-900">Bi-Directional Meter</div>
+                            <div class="text-xs text-slate-500 mt-0.5">Import aur Export bijli dono ka hisab rakhta hai.</div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="p-5 flex items-start space-x-3">
+                        <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-black font-heading shrink-0 text-sm">
+                            4
+                        </div>
+                        <div>
+                            <div class="font-bold text-sm text-slate-900">Utility Grid Power</div>
+                            <div class="text-xs text-slate-500 mt-0.5">Extra bijli DISCOM grid ko jati hai & bill zero hota hai.</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Interactive Solar Savings Calculator -->
+    <section id="calculator" class="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-orange-600 bg-orange-100 px-3 py-1 rounded-full">Save Big Every Month</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3">Interactive Solar ROI & Subsidy Calculator</h2>
+                <p class="text-slate-600 text-sm sm:text-base mt-2">Apna monthly bijli bill select karein aur dekhiye PM Surya Ghar Yojana ke tehat kitna munafa hoga.</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-slate-50 to-amber-50/40 p-6 sm:p-12 rounded-3xl border-2 border-amber-200/80 card-shadow">
+                <div class="space-y-8">
+                    <!-- Slider -->
+                    <div>
+                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-3">
+                            <label class="text-base font-bold text-slate-800">Monthly Electricity Bill (मासिक बिजली बिल):</label>
+                            <span id="billVal" class="text-3xl font-black text-orange-600 font-heading">₹ 3,500</span>
+                        </div>
+                        <input type="range" id="billInput" min="1000" max="30000" step="500" value="3500" class="w-full h-3 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-orange-500">
+                        <div class="flex justify-between text-xs font-semibold text-slate-400 mt-2">
+                            <span>₹1,000 / mo</span>
+                            <span>₹15,000 / mo</span>
+                            <span>₹30,000+ / mo</span>
+                        </div>
+                    </div>
+
+                    <!-- 3 Metric Cards -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow text-center">
+                            <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="sun" class="w-6 h-6"></i>
+                            </div>
+                            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Required Solar System</div>
+                            <div id="plantSize" class="text-2xl font-black font-heading text-slate-900 mt-1">3 kW Plant</div>
+                            <div class="text-xs font-semibold text-blue-600 mt-1">Tier-1 High Efficiency Panels</div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border-2 border-emerald-300 card-shadow text-center relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-bl-lg">GOVT. SUBSIDY</div>
+                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="badge-percent" class="w-6 h-6"></i>
+                            </div>
+                            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">PM Surya Ghar Subsidy</div>
+                            <div id="subsidyVal" class="text-2xl font-black font-heading text-emerald-600 mt-1">₹ 78,000</div>
+                            <div class="text-xs font-semibold text-slate-500 mt-1">Direct Bank Account Transfer</div>
+                        </div>
+
+                        <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow text-center">
+                            <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mx-auto mb-3">
+                                <i data-lucide="trending-up" class="w-6 h-6"></i>
+                            </div>
+                            <div class="text-xs font-bold text-slate-500 uppercase tracking-wider">Estimated Annual Savings</div>
+                            <div id="savingsVal" class="text-2xl font-black font-heading text-amber-600 mt-1">₹ 37,800 / yr</div>
+                            <div class="text-xs font-semibold text-slate-500 mt-1">25 Year Savings: ~ ₹9.4 Lakh+</div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="text-center pt-2">
+                        <a id="calcQuoteBtn" href="https://wa.me/917000944370?text=Hello%20RK%20Foundation,%20my%20bill%20is%20approx%203500/mo%20and%20I%20want%20to%20claim%20subsidy%20for%203kW%20solar." target="_blank" class="inline-flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-orange-500/30 transition text-base">
+                            <i data-lucide="check-circle" class="w-5 h-5"></i>
+                            <span>Apply For Subsidy & Free Site Visit</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section id="services" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-orange-600 bg-orange-100 px-3 py-1 rounded-full">Our Core Capabilities</span>
+                <h2 class="text-3xl sm:text-5xl font-extrabold font-heading text-slate-900 mt-3">Comprehensive Energy & EPC Solutions</h2>
+                <p class="text-slate-600 text-sm sm:text-base mt-3">From residential rooftop installations to heavy industrial HT transformers.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <!-- Service 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 card-shadow flex flex-col justify-between hover:border-orange-300 transition duration-300" data-tilt data-tilt-max="5">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="sun-dim" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-slate-900 mb-3">On-Grid & Rooftop Solar</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">Complete turnkey solar solutions for homes, commercial complexes, schools, and hospitals with Bi-Directional Net-Metering.</p>
+
+                        <ul class="space-y-3 text-xs font-semibold text-slate-700">
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i><span>Full PM Surya Ghar subsidy processing</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i><span>Mono-PERC / TOPCon High-Yield Panels</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500"></i><span>DISCOM & Net-Meter Approvals</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="https://wa.me/917000944370?text=I%20am%20interested%20in%20Rooftop%20Solar%20Plant" target="_blank" class="text-orange-600 font-bold text-sm flex items-center space-x-1 hover:underline">
+                            <span>Get Quotation</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 card-shadow flex flex-col justify-between hover:border-blue-300 transition duration-300" data-tilt data-tilt-max="5">
+                    <div>
+                        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="file-check-2" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-slate-900 mb-3">Solar Consultancy & DPR</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">Detailed Project Reports (DPR), financial modeling, solar load analysis, bank loan documentation, and DISCOM feasibility advisory.</p>
+
+                        <ul class="space-y-3 text-xs font-semibold text-slate-700">
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i><span>Bankable DPR Reports for Subsidy & Loans</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i><span>Shadow Analysis & Generation Modeling</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-blue-500"></i><span>Payback Period & ROI Calculations</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="https://wa.me/917000944370?text=I%20need%20Solar%20Consultancy%20and%20DPR%20Report" target="_blank" class="text-blue-600 font-bold text-sm flex items-center space-x-1 hover:underline">
+                            <span>Request DPR</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-slate-200 card-shadow flex flex-col justify-between hover:border-amber-300 transition duration-300" data-tilt data-tilt-max="5">
+                    <div>
+                        <div class="w-14 h-14 bg-amber-100 text-amber-600 rounded-2xl flex items-center justify-center mb-6">
+                            <i data-lucide="zap" class="w-8 h-8"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold font-heading text-slate-900 mb-3">LT & HT Electrical Work</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">A-Grade certified electrical contracting for High Tension (HT) and Low Tension (LT) power distribution, transformers, and industrial cabling.</p>
+
+                        <ul class="space-y-3 text-xs font-semibold text-slate-700">
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-amber-500"></i><span>Transformer & Substation Erection</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-amber-500"></i><span>HT Cable Jointing & LT Panel Wiring</span></li>
+                            <li class="flex items-center space-x-2"><i data-lucide="check" class="w-4 h-4 text-amber-500"></i><span>Chemical Earthing & Safety Audits</span></li>
+                        </ul>
+                    </div>
+                    <div class="pt-8">
+                        <a href="https://wa.me/917000944370?text=I%20have%20an%20LT/HT%20Electrical%20Requirement" target="_blank" class="text-amber-600 font-bold text-sm flex items-center space-x-1 hover:underline">
+                            <span>Discuss Electrical Work</span> <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose RK Foundation -->
+    <section id="why-us" class="py-20 px-4 sm:px-6 lg:px-8 bg-white border-y border-slate-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-orange-600 bg-orange-100 px-3 py-1 rounded-full">Why Choose Us</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3 mb-6">Expertise You Can Trust For 25+ Years</h2>
+                    <p class="text-slate-600 text-base leading-relaxed mb-6">
+                        Solar lagwana ek one-time lifetime investment hai. <strong>RK Foundation</strong> ensure karta hai ki aapko best quality panels, strong galvanized structure, aur guaranteed subsidy support mile.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <div class="w-10 h-10 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="shield-check" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Hassle-Free Subsidy & Approvals</h4>
+                                <p class="text-xs text-slate-500 mt-1">DISCOM net-metering aur bank subsidy documentation ka poora kaam hamari team karti hai.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="wrench" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Heavy-Duty Rust-Proof Structure</h4>
+                                <p class="text-xs text-slate-500 mt-1">150 km/h wind resistant Hot-Dip Galvanized structures jo aandhi-toofan me bhi surakshit rahein.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                                <i data-lucide="phone-call" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-sm">Prompt After-Sales Maintenance</h4>
+                                <p class="text-xs text-slate-500 mt-1">Dedicated customer support aur regular maintenance visits Bhopal aur aas-paas ke sabhi kshetro me.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Callout Box -->
+                <div class="bg-gradient-to-br from-orange-500 via-amber-500 to-emerald-600 p-8 sm:p-10 rounded-3xl text-white sun-glow">
+                    <span class="text-xs font-extrabold uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full text-white">Govt. Scheme</span>
+                    <h3 class="text-2xl sm:text-3xl font-black font-heading mt-4 mb-3">PM Surya Ghar: Muft Bijli Yojana</h3>
+                    <p class="text-white/90 text-sm leading-relaxed mb-6">
+                        Bharat Sarkar ke is scheme ke tahat har parivar ko 300 units tak muft bijli aur ₹78,000 tak ki direct bank subsidy di ja rahi hai.
+                    </p>
+
+                    <div class="bg-white/10 backdrop-blur p-4 rounded-2xl border border-white/20 space-y-2 mb-6 text-sm">
+                        <div class="flex justify-between font-semibold"><span>1 kW Plant:</span> <span>₹30,000 Subsidy</span></div>
+                        <div class="flex justify-between font-semibold"><span>2 kW Plant:</span> <span>₹60,000 Subsidy</span></div>
+                        <div class="flex justify-between font-bold text-amber-200"><span>3 kW & Above:</span> <span>₹78,000 Max Subsidy</span></div>
+                    </div>
+
+                    <a href="https://wa.me/917000944370?text=Please%20guide%20me%20for%20PM%20Surya%20Ghar%20Subsidy%20Registration" target="_blank" class="w-full bg-white text-slate-900 hover:bg-slate-100 font-bold py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg">
+                        <i data-lucide="file-text" class="w-4 h-4 text-orange-600"></i>
+                        <span>Apply For PM Surya Ghar Yojana</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government Certifications -->
+    <section id="certifications" class="py-16 px-4 bg-slate-100">
+        <div class="max-w-6xl mx-auto text-center">
+            <h3 class="text-xl sm:text-2xl font-bold font-heading text-slate-800 mb-8">Registered & Recognized Enterprise</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow flex items-center space-x-4 text-left">
+                    <div class="w-12 h-12 rounded-xl bg-orange-100 text-orange-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-slate-900 text-sm">MSME Registered</div>
+                        <div class="text-xs text-slate-500">Ministry of MSME, Govt. of India</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow flex items-center space-x-4 text-left">
+                    <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="shield-check" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-slate-900 text-sm">Gumasta License</div>
+                        <div class="text-xs text-slate-500">Authorized Commercial Enterprise</div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 card-shadow flex items-center space-x-4 text-left">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+                        <i data-lucide="check-circle-2" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-slate-900 text-sm">Certified Solar EPC</div>
+                        <div class="text-xs text-slate-500">Quality Assured Installations</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Direct Call Section -->
+    <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-slate-900 rounded-3xl p-8 sm:p-14 text-white relative overflow-hidden card-shadow">
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-orange-400 bg-orange-950/60 px-3 py-1 rounded-full border border-orange-500/30">Connect With Us</span>
+                        <h2 class="text-3xl sm:text-5xl font-black font-heading mt-4 mb-4">Start Saving With Solar Today</h2>
+                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-8">
+                            Apne ghar, factory ya commercial space ke liye free site inspection aur detailed feasibility survey book karein.
+                        </p>
+
+                        <div class="space-y-5">
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-white/10 text-orange-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="map-pin" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 font-semibold uppercase">Office Address</div>
+                                    <div class="text-sm font-semibold text-white mt-0.5">71 Kanta Shrawan Jyoti, Ayodhya Bye Pass, Bhopal (M.P.)</div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="w-10 h-10 rounded-xl bg-white/10 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i data-lucide="phone" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-slate-400 font-semibold uppercase">Direct Phone / WhatsApp</div>
+                                    <a href="tel:7000944370" class="text-lg font-bold text-orange-400 hover:text-orange-300 transition">+91 7000944370</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form Inside Dark Card -->
+                    <div class="bg-slate-800/90 border border-slate-700 p-6 sm:p-8 rounded-2xl">
+                        <h3 class="text-xl font-bold font-heading text-white mb-2">Send Instant Request</h3>
+                        <p class="text-xs text-slate-400 mb-6">Details bharein, hum aapse turant sampark karenge.</p>
+
+                        <form onsubmit="event.preventDefault(); sendLeadFooter();" class="space-y-4">
+                            <div>
+                                <label class="text-xs font-semibold text-slate-300 block mb-1">Your Name</label>
+                                <input id="footName" type="text" required placeholder="Aapka Naam" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-orange-500">
+                            </div>
+                            <div>
+                                <label class="text-xs font-semibold text-slate-300 block mb-1">Mobile Number & City</label>
+                                <input id="footPhone" type="text" required placeholder="Phone number & Bhopal / City" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-orange-500">
+                            </div>
+                            <div>
+                                <label class="text-xs font-semibold text-slate-300 block mb-1">Select Requirement</label>
+                                <select id="footService" class="w-full px-4 py-3 bg-slate-900 border border-slate-700 rounded-xl text-white text-sm focus:outline-none focus:border-orange-500">
+                                    <option>Home Rooftop Solar (1 kW - 10 kW)</option>
+                                    <option>Commercial / Industrial Solar</option>
+                                    <option>Solar DPR & Consultancy Report</option>
+                                    <option>LT / HT Electrical & Transformer Work</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-3.5 rounded-xl transition flex items-center justify-center space-x-2 shadow-lg shadow-orange-500/20">
+                                <i data-lucide="send" class="w-4 h-4"></i>
+                                <span>Send Enquiry On WhatsApp</span>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-slate-100 text-center text-xs font-medium text-slate-500 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center space-x-2">
+                <img src="RK.png" alt="RK Foundation" class="h-8 w-auto">
+                <span class="font-bold text-slate-700">RK Foundation</span>
+            </div>
+            <p>© 2026 RK Foundation. All Rights Reserved. Clean Energy EPC Solutions, Bhopal.</p>
+            <div class="flex space-x-4">
+                <a href="#home" class="hover:text-orange-600">Home</a>
+                <a href="#calculator" class="hover:text-orange-600">Calculator</a>
+                <a href="#services" class="hover:text-orange-600">Services</a>
+                <a href="#contact" class="hover:text-orange-600">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), { speed: 400, glare: false });
+
+        // Calculator Logic
+        const billInput = document.getElementById('billInput');
+        const billVal = document.getElementById('billVal');
+        const plantSize = document.getElementById('plantSize');
+        const subsidyVal = document.getElementById('subsidyVal');
+        const savingsVal = document.getElementById('savingsVal');
+        const calcQuoteBtn = document.getElementById('calcQuoteBtn');
+
+        billInput.addEventListener('input', (e) => {
+            const bill = parseInt(e.target.value);
+            billVal.innerText = '₹ ' + bill.toLocaleString('en-IN');
+
+            let kw = 1;
+            if (bill > 1500) kw = 2;
+            if (bill > 2800) kw = 3;
+            if (bill > 4500) kw = 5;
+            if (bill > 9000) kw = 10;
+            if (bill > 18000) kw = 15;
+
+            plantSize.innerText = kw + ' kW Plant';
+
+            // PM Surya Ghar Subsidy
+            let sub = 30000;
+            if (kw === 2) sub = 60000;
+            if (kw >= 3) sub = 78000;
+            subsidyVal.innerText = '₹ ' + sub.toLocaleString('en-IN');
+
+            const saving = Math.round(bill * 0.9 * 12);
+            savingsVal.innerText = '₹ ' + saving.toLocaleString('en-IN') + ' / yr';
+
+            calcQuoteBtn.href = `https://wa.me/917000944370?text=Hello%20RK%20Foundation,%20my%20bill%20is%20approx%20₹${bill}/month%20and%20I%20want%20to%20claim%20subsidy%20for%20a%20${kw}kW%20Solar%20System.`;
+        });
+
+        function sendLeadFooter() {
+            const name = document.getElementById('footName').value;
+            const phone = document.getElementById('footPhone').value;
+            const service = document.getElementById('footService').value;
+            const text = `Hello RK Foundation,\nName: ${name}\nContact: ${phone}\nRequirement: ${service}`;
+            window.open(`https://wa.me/917000944370?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        // ==========================================
+        // 3D Solar Rooftop & Solar Installation Simulation (Three.js)
+        // Flow: Solar Panels -> DC Wiring -> Inverter -> AC Wiring -> Net-Meter -> Grid Pole
+        // ==========================================
+        (function init3DSolarModel() {
+            const canvas = document.getElementById('solar3dCanvas');
+            if (!canvas || typeof THREE === 'undefined') return;
+
+            const scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0xe0f2fe, 0.035);
+
+            const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+            camera.position.set(4.5, 3.8, 5.5);
+
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+            renderer.shadowMap.enabled = true;
+            renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.dampingFactor = 0.05;
+            controls.maxPolarAngle = Math.PI / 2.05;
+            controls.minDistance = 3.5;
+            controls.maxDistance = 14;
+            controls.target.set(0.6, 0.2, 0);
+
+            // Lighting Setup
+            const hemiLight = new THREE.HemisphereLight(0xffffff, 0x94a3b8, 0.85);
+            scene.add(hemiLight);
+
+            const dirLight = new THREE.DirectionalLight(0xfffbeb, 1.4);
+            dirLight.position.set(7, 10, 6);
+            dirLight.castShadow = true;
+            dirLight.shadow.mapSize.width = 1024;
+            dirLight.shadow.mapSize.height = 1024;
+            scene.add(dirLight);
+
+            const fillLight = new THREE.PointLight(0x38bdf8, 0.6, 15);
+            fillLight.position.set(-5, 4, -4);
+            scene.add(fillLight);
+
+            const worldGroup = new THREE.Group();
+            scene.add(worldGroup);
+
+            // 1. Ground Surface (Lawn & Paved Pathway)
+            const groundGeo = new THREE.PlaneGeometry(35, 35);
+            const groundMat = new THREE.MeshStandardMaterial({ color: 0xecfdf5, roughness: 0.9 }); // Light green lush lawn feel
+            const ground = new THREE.Mesh(groundGeo, groundMat);
+            ground.rotation.x = -Math.PI / 2;
+            ground.position.y = -1.4;
+            ground.receiveShadow = true;
+            worldGroup.add(ground);
+
+            // Compound Courtyard Paving Slab
+            const yardGeo = new THREE.BoxGeometry(5.8, 0.04, 5.2);
+            const yardMat = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.7 });
+            const yard = new THREE.Mesh(yardGeo, yardMat);
+            yard.position.set(0, -1.38, 0.2);
+            yard.receiveShadow = true;
+            worldGroup.add(yard);
+
+            // House Compound Boundary Wall / Boundary Fence with Main Gate Pillars
+            const boundaryGroup = new THREE.Group();
+            const wallMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.5 });
+            const wallCapMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.3 });
+            const grillMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, metalness: 0.8, roughness: 0.3 });
+            const pillarLightMat = new THREE.MeshStandardMaterial({ color: 0xfef08a, emissive: 0xfef08a, emissiveIntensity: 0.5 });
+
+            // Helper to build a styled boundary wall segment with grill
+            function createWallSegment(length, rotY = 0, x = 0, z = 0) {
+                const seg = new THREE.Group();
+                seg.position.set(x, -1.15, z);
+                seg.rotation.y = rotY;
+
+                // Base concrete wall
+                const bWall = new THREE.Mesh(new THREE.BoxGeometry(length, 0.45, 0.14), wallMat);
+                bWall.castShadow = true;
+                bWall.receiveShadow = true;
+                seg.add(bWall);
+
+                // Wall Top Cap
+                const bCap = new THREE.Mesh(new THREE.BoxGeometry(length + 0.04, 0.06, 0.18), wallCapMat);
+                bCap.position.y = 0.25;
+                seg.add(bCap);
+
+                // Top Modern Railing / Grills
+                const railTop = new THREE.Mesh(new THREE.BoxGeometry(length, 0.03, 0.03), grillMat);
+                railTop.position.y = 0.45;
+                seg.add(railTop);
+
+                const barsCount = Math.floor(length * 4.5);
+                for (let i = 0; i <= barsCount; i++) {
+                    const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.012, 0.012, 0.2, 6), grillMat);
+                    bar.position.set(-length / 2 + (i / barsCount) * length, 0.35, 0);
+                    seg.add(bar);
+                }
+                return seg;
+            }
+
+            // Helper to build compound pillars with designer cap lights
+            function createPillar(x, z) {
+                const pGroup = new THREE.Group();
+                pGroup.position.set(x, -1.05, z);
+
+                const col = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.72, 0.28), wallMat);
+                col.castShadow = true;
+                pGroup.add(col);
+
+                const cap = new THREE.Mesh(new THREE.BoxGeometry(0.34, 0.08, 0.34), wallCapMat);
+                cap.position.y = 0.38;
+                pGroup.add(cap);
+
+                // Pillar Top Modern Solar Lamp
+                const lamp = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.1, 0.14), pillarLightMat);
+                lamp.position.y = 0.46;
+                pGroup.add(lamp);
+
+                return pGroup;
+            }
+
+            // 1. Back Boundary Wall
+            boundaryGroup.add(createWallSegment(5.6, 0, 0, -2.4));
+
+            // 2. Left Boundary Wall
+            boundaryGroup.add(createWallSegment(5.0, Math.PI / 2, -2.8, 0.1));
+
+            // 3. Right Boundary Wall
+            boundaryGroup.add(createWallSegment(5.0, Math.PI / 2, 2.8, 0.1));
+
+            // 4. Front Boundary Wall (Left portion & Right portion leaving entrance opening)
+            boundaryGroup.add(createWallSegment(1.8, 0, -1.9, 2.6));
+            boundaryGroup.add(createWallSegment(2.2, 0, 1.7, 2.6));
+
+            // Corner and Gate Boundary Pillars
+            boundaryGroup.add(createPillar(-2.8, -2.4)); // Back-Left
+            boundaryGroup.add(createPillar(2.8, -2.4));  // Back-Right
+            boundaryGroup.add(createPillar(-2.8, 2.6));  // Front-Left
+            boundaryGroup.add(createPillar(2.8, 2.6));   // Front-Right
+            boundaryGroup.add(createPillar(-1.0, 2.6));  // Main Gate Left Pillar
+            boundaryGroup.add(createPillar(0.6, 2.6));   // Main Gate Right Pillar
+
+            // Front Compound Entrance Gate (Stylish Black Steel Slats)
+            const mainGate = new THREE.Group();
+            mainGate.position.set(-0.2, -1.05, 2.6);
+            for (let i = 0; i < 7; i++) {
+                const slat = new THREE.Mesh(new THREE.BoxGeometry(1.3, 0.04, 0.02), grillMat);
+                slat.position.y = -0.22 + i * 0.08;
+                mainGate.add(slat);
+            }
+            const gateFrameL = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.6, 8), grillMat);
+            gateFrameL.position.x = -0.65;
+            mainGate.add(gateFrameL);
+            const gateFrameR = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.6, 8), grillMat);
+            gateFrameR.position.x = 0.65;
+            mainGate.add(gateFrameR);
+            boundaryGroup.add(mainGate);
+
+            worldGroup.add(boundaryGroup);
+
+            // 2. House Structure Base & Terrace
+            const houseGeo = new THREE.BoxGeometry(3.6, 1.4, 3.2);
+            const houseMat = new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.35 });
+            const house = new THREE.Mesh(houseGeo, houseMat);
+            house.position.set(0, -0.7, 0);
+            house.castShadow = true;
+            house.receiveShadow = true;
+            worldGroup.add(house);
+
+            // House Main Entrance Gate & Windows
+            const gateMat = new THREE.MeshStandardMaterial({ color: 0x78350f, roughness: 0.4 }); // Teak wood finish
+            const frameBrownMat = new THREE.MeshStandardMaterial({ color: 0x334155, roughness: 0.3 });
+            const glassMat = new THREE.MeshStandardMaterial({ color: 0x38bdf8, roughness: 0.1, metalness: 0.8, transparent: true, opacity: 0.85 });
+
+            // Front Main Door / Gate
+            const doorGroup = new THREE.Group();
+            doorGroup.position.set(-0.6, -0.78, 1.61);
+
+            const doorFrame = new THREE.Mesh(new THREE.BoxGeometry(0.72, 1.15, 0.04), frameBrownMat);
+            doorGroup.add(doorFrame);
+
+            const doorLeaf = new THREE.Mesh(new THREE.BoxGeometry(0.64, 1.08, 0.03), gateMat);
+            doorLeaf.position.z = 0.01;
+            doorGroup.add(doorLeaf);
+
+            // Door Handle
+            const doorHandle = new THREE.Mesh(new THREE.CylinderGeometry(0.015, 0.015, 0.1, 8), new THREE.MeshStandardMaterial({ color: 0xfacc15, metalness: 0.9 }));
+            doorHandle.position.set(0.24, 0, 0.035);
+            doorGroup.add(doorHandle);
+
+            // Doorstep / Porch
+            const doorStep = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.08, 0.3), new THREE.MeshStandardMaterial({ color: 0x94a3b8 }));
+            doorStep.position.set(0, -0.58, 0.15);
+            doorGroup.add(doorStep);
+            worldGroup.add(doorGroup);
+
+            // Front Window (Large Modern Glass Window with Frame)
+            function createWindow(x, y, z, rotY = 0) {
+                const winGroup = new THREE.Group();
+                winGroup.position.set(x, y, z);
+                winGroup.rotation.y = rotY;
+
+                const winFrame = new THREE.Mesh(new THREE.BoxGeometry(0.9, 0.7, 0.04), frameBrownMat);
+                winGroup.add(winFrame);
+
+                const winGlass = new THREE.Mesh(new THREE.BoxGeometry(0.82, 0.62, 0.02), glassMat);
+                winGlass.position.z = 0.01;
+                winGroup.add(winGlass);
+
+                // Window Grids / Mullions
+                const mVert = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.62, 0.025), frameBrownMat);
+                mVert.position.z = 0.015;
+                winGroup.add(mVert);
+
+                const mHoriz = new THREE.Mesh(new THREE.BoxGeometry(0.82, 0.02, 0.025), frameBrownMat);
+                mHoriz.position.z = 0.015;
+                winGroup.add(mHoriz);
+
+                // Window Sunshade / Chhajja
+                const shade = new THREE.Mesh(new THREE.BoxGeometry(1.02, 0.04, 0.22), new THREE.MeshStandardMaterial({ color: 0x0284c7 }));
+                shade.position.set(0, 0.38, 0.1);
+                winGroup.add(shade);
+
+                return winGroup;
+            }
+
+            // Window on Front Wall
+            const frontWindow = createWindow(0.85, -0.65, 1.61);
+            worldGroup.add(frontWindow);
+
+            // Window on Left Side Wall
+            const sideWindow = createWindow(-1.81, -0.65, 0, Math.PI / 2);
+            worldGroup.add(sideWindow);
+
+            // Rooftop Slab (Slate finish)
+            const roofGeo = new THREE.BoxGeometry(3.8, 0.15, 3.4);
+            const roofMat = new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.6 });
+            const roof = new THREE.Mesh(roofGeo, roofMat);
+            roof.position.set(0, 0.05, 0);
+            roof.castShadow = true;
+            roof.receiveShadow = true;
+            worldGroup.add(roof);
+
+            // Roof Parapet / Railing
+            const parapetMat = new THREE.MeshStandardMaterial({ color: 0xe2e8f0, roughness: 0.4 });
+            const pFront = new THREE.Mesh(new THREE.BoxGeometry(3.8, 0.25, 0.08), parapetMat);
+            pFront.position.set(0, 0.22, 1.66);
+            worldGroup.add(pFront);
+            const pBack = new THREE.Mesh(new THREE.BoxGeometry(3.8, 0.25, 0.08), parapetMat);
+            pBack.position.set(0, 0.22, -1.66);
+            worldGroup.add(pBack);
+            const pLeft = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.25, 3.4), parapetMat);
+            pLeft.position.set(-1.86, 0.22, 0);
+            worldGroup.add(pLeft);
+
+            // 3. Solar Panel Array (2x3 Grid with Tilt)
+            const panelGroup = new THREE.Group();
+            panelGroup.position.set(0, 0.25, 0.2);
+            panelGroup.rotation.x = -0.32; // ~18 degree optimal tilt
+
+            const frameMat = new THREE.MeshStandardMaterial({ color: 0xd4d4d8, metalness: 0.85, roughness: 0.25 });
+            const cellMat = new THREE.MeshStandardMaterial({ color: 0x0f172a, roughness: 0.15, metalness: 0.45 });
+            const busbarMat = new THREE.MeshBasicMaterial({ color: 0x38bdf8 });
+
+            for (let row = 0; row < 2; row++) {
+                for (let col = 0; col < 3; col++) {
+                    const pMesh = new THREE.Group();
+                    const fGeom = new THREE.BoxGeometry(0.85, 0.035, 0.6);
+                    const frame = new THREE.Mesh(fGeom, frameMat);
+                    frame.castShadow = true;
+                    pMesh.add(frame);
+
+                    const cGeom = new THREE.BoxGeometry(0.81, 0.038, 0.56);
+                    const cell = new THREE.Mesh(cGeom, cellMat);
+                    pMesh.add(cell);
+
+                    // Busbar Lines (Texture Effect)
+                    for (let b = -0.3; b <= 0.3; b += 0.2) {
+                        const line = new THREE.Mesh(new THREE.BoxGeometry(0.008, 0.04, 0.55), busbarMat);
+                        line.position.x = b;
+                        pMesh.add(line);
+                    }
+
+                    pMesh.position.set((col - 1) * 0.94, 0, (row - 0.5) * 0.7);
+                    panelGroup.add(pMesh);
+                }
+            }
+
+            // Mounting Legs
+            const legMat = new THREE.MeshStandardMaterial({ color: 0xa1a1aa, metalness: 0.7, roughness: 0.3 });
+            const leg1 = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.4), legMat);
+            leg1.position.set(-1.2, -0.15, -0.6);
+            panelGroup.add(leg1);
+            const leg2 = new THREE.Mesh(new THREE.CylinderGeometry(0.02, 0.02, 0.4), legMat);
+            leg2.position.set(1.2, -0.15, -0.6);
+            panelGroup.add(leg2);
+            worldGroup.add(panelGroup);
+
+            // 4. DC Junction Combiner Box (On Roof)
+            const dcBox = new THREE.Mesh(new THREE.BoxGeometry(0.22, 0.26, 0.12), new THREE.MeshStandardMaterial({ color: 0xd97706, roughness: 0.3 }));
+            dcBox.position.set(-1.5, 0.2, 0.8);
+            dcBox.castShadow = true;
+            worldGroup.add(dcBox);
+
+            // 5. On-Grid Solar String Inverter (Wall Mounted)
+            const inverterGroup = new THREE.Group();
+            inverterGroup.position.set(1.82, -0.4, 0.4);
+
+            const invBody = new THREE.Mesh(new THREE.BoxGeometry(0.16, 0.55, 0.36), new THREE.MeshStandardMaterial({ color: 0xffffff, roughness: 0.25 }));
+            invBody.castShadow = true;
+            inverterGroup.add(invBody);
+
+            // Inverter LCD Display Screen
+            const invDisplay = new THREE.Mesh(new THREE.BoxGeometry(0.01, 0.12, 0.18), new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.1, emissive: 0x0369a1, emissiveIntensity: 0.7 }));
+            invDisplay.position.set(0.085, 0.1, 0);
+            inverterGroup.add(invDisplay);
+
+            // Inverter Status LEDs
+            const ledGreen = new THREE.Mesh(new THREE.SphereGeometry(0.016, 8, 8), new THREE.MeshBasicMaterial({ color: 0x22c55e }));
+            ledGreen.position.set(0.085, -0.05, -0.06);
+            inverterGroup.add(ledGreen);
+            const ledBlue = new THREE.Mesh(new THREE.SphereGeometry(0.016, 8, 8), new THREE.MeshBasicMaterial({ color: 0x38bdf8 }));
+            ledBlue.position.set(0.085, -0.05, 0.06);
+            inverterGroup.add(ledBlue);
+
+            // Inverter Heat Sink Fins
+            for (let f = -0.12; f <= 0.12; f += 0.04) {
+                const fin = new THREE.Mesh(new THREE.BoxGeometry(0.04, 0.5, 0.01), new THREE.MeshStandardMaterial({ color: 0x334155, metalness: 0.8 }));
+                fin.position.set(-0.085, 0, f);
+                inverterGroup.add(fin);
+            }
+            worldGroup.add(inverterGroup);
+
+            // 6. Bi-Directional Net Meter (DISCOM Meter on Wall)
+            const meterGroup = new THREE.Group();
+            meterGroup.position.set(1.82, -0.85, -0.6);
+
+            const meterBody = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.38, 0.26), new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.4 }));
+            meterBody.castShadow = true;
+            meterGroup.add(meterBody);
+
+            const meterGlass = new THREE.Mesh(new THREE.BoxGeometry(0.01, 0.16, 0.18), new THREE.MeshStandardMaterial({ color: 0xa7f3d0, emissive: 0x059669, emissiveIntensity: 0.8, roughness: 0.2 }));
+            meterGlass.position.set(0.075, 0.04, 0);
+            meterGroup.add(meterGlass);
+
+            // Pulse Blinking LED
+            const pulseLed = new THREE.Mesh(new THREE.SphereGeometry(0.014, 8, 8), new THREE.MeshBasicMaterial({ color: 0xef4444 }));
+            pulseLed.position.set(0.075, -0.1, 0.05);
+            meterGroup.add(pulseLed);
+            worldGroup.add(meterGroup);
+
+            // 7. Utility Grid Pole (Bijli Khamba)
+            const poleGroup = new THREE.Group();
+            poleGroup.position.set(3.2, -0.5, -1.8);
+
+            const pole = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 3.2, 16), new THREE.MeshStandardMaterial({ color: 0x64748b, metalness: 0.5, roughness: 0.5 }));
+            pole.position.y = 0.7;
+            pole.castShadow = true;
+            poleGroup.add(pole);
+
+            // Crossarm
+            const crossarm = new THREE.Mesh(new THREE.BoxGeometry(0.06, 0.06, 1.2), new THREE.MeshStandardMaterial({ color: 0x475569, metalness: 0.7 }));
+            crossarm.position.set(0, 2.1, 0);
+            poleGroup.add(crossarm);
+
+            // Ceramic Insulators
+            const insMat = new THREE.MeshStandardMaterial({ color: 0x7c2d12, roughness: 0.3 });
+            [-0.45, 0, 0.45].forEach(zPos => {
+                const ins = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.12, 10), insMat);
+                ins.position.set(0, 2.2, zPos);
+                poleGroup.add(ins);
+            });
+            worldGroup.add(poleGroup);
+
+            // 8. 3D Conduits / Electrical Wiring Paths
+            // Path 1: DC Cable (Panel -> DC Box -> Inverter)
+            const dcCurve = new THREE.CatmullRomCurve3([
+                new THREE.Vector3(-0.6, 0.4, 0.5),
+                new THREE.Vector3(-1.5, 0.2, 0.8),
+                new THREE.Vector3(-1.5, 0.08, 0.8),
+                new THREE.Vector3(1.82, 0.08, 0.8),
+                new THREE.Vector3(1.82, -0.1, 0.4)
+            ]);
+            const dcTube = new THREE.Mesh(new THREE.TubeGeometry(dcCurve, 40, 0.016, 8, false), new THREE.MeshStandardMaterial({ color: 0xf59e0b, roughness: 0.4 }));
+            worldGroup.add(dcTube);
+
+            // Path 2: AC Cable (Inverter -> Net-Meter)
+            const acCurve = new THREE.CatmullRomCurve3([
+                new THREE.Vector3(1.82, -0.7, 0.4),
+                new THREE.Vector3(1.82, -0.78, 0.1),
+                new THREE.Vector3(1.82, -0.78, -0.6),
+                new THREE.Vector3(1.82, -0.85, -0.6)
+            ]);
+            const acTube = new THREE.Mesh(new THREE.TubeGeometry(acCurve, 25, 0.016, 8, false), new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.4 }));
+            worldGroup.add(acTube);
+
+            // Path 3: Service Line (Net-Meter -> Grid Pole)
+            const gridCurve = new THREE.CatmullRomCurve3([
+                new THREE.Vector3(1.82, -0.85, -0.6),
+                new THREE.Vector3(2.2, -0.3, -1.0),
+                new THREE.Vector3(2.7, 0.6, -1.4),
+                new THREE.Vector3(3.2, 1.6, -1.8)
+            ]);
+            const gridTube = new THREE.Mesh(new THREE.TubeGeometry(gridCurve, 30, 0.014, 8, false), new THREE.MeshStandardMaterial({ color: 0x10b981, roughness: 0.4 }));
+            worldGroup.add(gridTube);
+
+            // 9. Animated Energy Flow Particles
+            function createParticle(color, size = 0.035) {
+                return new THREE.Mesh(
+                    new THREE.SphereGeometry(size, 8, 8),
+                    new THREE.MeshBasicMaterial({ color: color })
+                );
+            }
+
+            const dcParticles = [createParticle(0xfbbf24), createParticle(0xf59e0b), createParticle(0xffedd5)];
+            dcParticles.forEach(p => worldGroup.add(p));
+
+            const acParticles = [createParticle(0x38bdf8), createParticle(0x0284c7)];
+            acParticles.forEach(p => worldGroup.add(p));
+
+            const gridParticles = [createParticle(0x34d399), createParticle(0x10b981)];
+            gridParticles.forEach(p => worldGroup.add(p));
+
+            // ==========================================
+            // 10. 3D Stylized Characters: Boy (Engineer/Technician) & Girl (Happy Customer)
+            // ==========================================
+            const charactersGroup = new THREE.Group();
+            worldGroup.add(charactersGroup);
+
+            const skinMat = new THREE.MeshStandardMaterial({ color: 0xffdfc4, roughness: 0.5 });
+            const darkHairMat = new THREE.MeshStandardMaterial({ color: 0x1e293b, roughness: 0.8 });
+            const girlHairMat = new THREE.MeshStandardMaterial({ color: 0x451a03, roughness: 0.7 });
+
+            // --- BOY (Solar Solar Engineer with Safety Helmet & Tech Tablet) ---
+            const boy = new THREE.Group();
+            boy.position.set(-0.9, 0.15, 1.1); // Standing on the terrace
+            boy.scale.set(0.7, 0.7, 0.7);
+
+            // Boy Body / Uniform
+            const boyTorso = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.14, 0.12, 0.42, 12),
+                new THREE.MeshStandardMaterial({ color: 0x0284c7, roughness: 0.4 }) // Blue RK uniform
+            );
+            boyTorso.position.y = 0.45;
+            boyTorso.castShadow = true;
+            boy.add(boyTorso);
+
+            // Safety Vest (Orange High-Vis)
+            const vest = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.145, 0.125, 0.28, 12),
+                new THREE.MeshStandardMaterial({ color: 0xf97316, roughness: 0.3 })
+            );
+            vest.position.y = 0.47;
+            boy.add(vest);
+
+            // Boy Head
+            const boyHead = new THREE.Mesh(new THREE.SphereGeometry(0.12, 16, 16), skinMat);
+            boyHead.position.y = 0.75;
+            boyHead.castShadow = true;
+            boy.add(boyHead);
+
+            // Safety Helmet (Yellow Engineer Hard Hat)
+            const helmet = new THREE.Mesh(
+                new THREE.SphereGeometry(0.135, 16, 16, 0, Math.PI * 2, 0, Math.PI * 0.55),
+                new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.2, metalness: 0.2 })
+            );
+            helmet.position.y = 0.77;
+            boy.add(helmet);
+
+            const helmetBrim = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.16, 0.16, 0.02, 16),
+                new THREE.MeshStandardMaterial({ color: 0xfacc15, roughness: 0.2 })
+            );
+            helmetBrim.position.set(0, 0.75, 0.03);
+            boy.add(helmetBrim);
+
+            // Boy Legs
+            const boyPantsMat = new THREE.MeshStandardMaterial({ color: 0x334155 });
+            const boyLegL = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.04, 0.38, 8), boyPantsMat);
+            boyLegL.position.set(-0.06, 0.19, 0);
+            boy.add(boyLegL);
+            const boyLegR = new THREE.Mesh(new THREE.CylinderGeometry(0.045, 0.04, 0.38, 8), boyPantsMat);
+            boyLegR.position.set(0.06, 0.19, 0);
+            boy.add(boyLegR);
+
+            // Tech Tablet / Clipboard in hand (Showing thumbs up / analyzing solar)
+            const boyArmR = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.28, 8), skinMat);
+            boyArmR.rotation.z = -Math.PI / 4;
+            boyArmR.rotation.x = -Math.PI / 4;
+            boyArmR.position.set(0.18, 0.45, 0.1);
+            boy.add(boyArmR);
+
+            const tablet = new THREE.Mesh(
+                new THREE.BoxGeometry(0.14, 0.015, 0.2),
+                new THREE.MeshStandardMaterial({ color: 0x0f172a, emissive: 0x38bdf8, emissiveIntensity: 0.3 })
+            );
+            tablet.position.set(0.24, 0.42, 0.22);
+            tablet.rotation.x = -0.5;
+            boy.add(tablet);
+
+            // Left Hand Waving
+            const boyArmL = new THREE.Mesh(new THREE.CylinderGeometry(0.035, 0.035, 0.28, 8), skinMat);
+            boyArmL.rotation.z = Math.PI / 3;
+            boyArmL.rotation.x = -Math.PI / 6;
+            boyArmL.position.set(-0.18, 0.52, 0.05);
+            boy.add(boyArmL);
+
+            boy.rotation.y = 0.5; // Facing front-right towards customer
+            charactersGroup.add(boy);
+
+            // --- GIRL (Happy Customer looking at Solar Savings) ---
+            const girl = new THREE.Group();
+            girl.position.set(-0.25, 0.15, 1.15); // Standing beside engineer
+            girl.scale.set(0.67, 0.67, 0.67);
+
+            // Girl Dress / Top
+            const girlTorso = new THREE.Mesh(
+                new THREE.CylinderGeometry(0.11, 0.14, 0.4, 12),
+                new THREE.MeshStandardMaterial({ color: 0x10b981, roughness: 0.4 }) // Emerald green dress
+            );
+            girlTorso.position.y = 0.44;
+            girlTorso.castShadow = true;
+            girl.add(girlTorso);
+
+            // Girl Head
+            const girlHead = new THREE.Mesh(new THREE.SphereGeometry(0.115, 16, 16), skinMat);
+            girlHead.position.y = 0.72;
+            girlHead.castShadow = true;
+            girl.add(girlHead);
+
+            // Girl Hair (Long Ponytail Style)
+            const girlHair = new THREE.Mesh(new THREE.SphereGeometry(0.125, 16, 16), girlHairMat);
+            girlHair.position.set(0, 0.74, -0.02);
+            girl.add(girlHair);
+
+            const ponytail = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.02, 0.25, 8), girlHairMat);
+            ponytail.position.set(0, 0.65, -0.14);
+            ponytail.rotation.x = -0.3;
+            girl.add(ponytail);
+
+            // Girl Legs
+            const girlPantsMat = new THREE.MeshStandardMaterial({ color: 0xffffff });
+            const girlLegL = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.035, 0.38, 8), girlPantsMat);
+            girlLegL.position.set(-0.05, 0.19, 0);
+            girl.add(girlLegL);
+            const girlLegR = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.035, 0.38, 8), girlPantsMat);
+            girlLegR.position.set(0.05, 0.19, 0);
+            girl.add(girlLegR);
+
+            // Girl Happy Waving Hands (Pointing towards panels)
+            const girlArmL = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.26, 8), skinMat);
+            girlArmL.rotation.z = Math.PI / 2.6;
+            girlArmL.position.set(-0.16, 0.52, 0.05);
+            girl.add(girlArmL);
+
+            const girlArmR = new THREE.Mesh(new THREE.CylinderGeometry(0.03, 0.03, 0.26, 8), skinMat);
+            girlArmR.rotation.z = -Math.PI / 4;
+            girlArmR.rotation.x = -Math.PI / 4;
+            girlArmR.position.set(0.15, 0.44, 0.1);
+            girl.add(girlArmR);
+
+            girl.rotation.y = -0.3; // Looking happily towards panels & engineer
+            charactersGroup.add(girl);
+
+            // Sun Animation Sphere
+            const sunSphere = new THREE.Mesh(new THREE.SphereGeometry(0.4, 16, 16), new THREE.MeshBasicMaterial({ color: 0xfde047 }));
+            sunSphere.position.set(7, 9, 6);
+            worldGroup.add(sunSphere);
+
+            // Animation Loop
+            let clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                const t = clock.getElapsedTime();
+
+                // Gentle Sun pulsing
+                const sunScale = 1 + Math.sin(t * 3) * 0.06;
+                sunSphere.scale.set(sunScale, sunScale, sunScale);
+
+                // Meter LED Pulse
+                pulseLed.material.color.setHex(Math.sin(t * 8) > 0 ? 0xef4444 : 0x450a0a);
+
+                // Idle Breathing & Waving Animation for Boy & Girl
+                boyHead.rotation.y = Math.sin(t * 1.5) * 0.15;
+                boyArmL.rotation.z = Math.PI / 3 + Math.sin(t * 4) * 0.12; // Boy waving hand
+
+                girlHead.rotation.y = -Math.sin(t * 1.5) * 0.12;
+                girlArmL.rotation.z = Math.PI / 2.6 + Math.cos(t * 3.5) * 0.1; // Girl gesturing towards solar
+
+                // Move DC particles along dcCurve
+                dcParticles.forEach((p, idx) => {
+                    const offset = (t * 0.4 + idx * 0.33) % 1;
+                    const pt = dcCurve.getPointAt(offset);
+                    p.position.copy(pt);
+                });
+
+                // Move AC particles along acCurve
+                acParticles.forEach((p, idx) => {
+                    const offset = (t * 0.5 + idx * 0.5) % 1;
+                    const pt = acCurve.getPointAt(offset);
+                    p.position.copy(pt);
+                });
+
+                // Move Grid particles along gridCurve
+                gridParticles.forEach((p, idx) => {
+                    const offset = (t * 0.35 + idx * 0.5) % 1;
+                    const pt = gridCurve.getPointAt(offset);
+                    p.position.copy(pt);
+                });
+
+                // Slow Auto-Orbit when user isn't interacting
+                if (!controls.state || controls.state === -1) {
+                    worldGroup.rotation.y = Math.sin(t * 0.15) * 0.08;
+                }
+
+                controls.update();
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            // Resize Handler
+            window.addEventListener('resize', () => {
+                const w = canvas.parentElement.clientWidth;
+                const h = canvas.parentElement.clientHeight;
+                camera.aspect = w / h;
+                camera.updateProjectionMatrix();
+                renderer.setSize(w, h);
+            });
+        })();
+    </script>
+</body>
+</html>
