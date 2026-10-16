@@ -284,85 +284,20 @@
         </div>
     </section>
 
-    <!-- LT/HT Electrical Distribution 3D Section -->
+    <!-- Professional Banner Section -->
     <section id="ltht" class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-50">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-10">
-                <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-100 px-3 py-1 rounded-full">LT / HT Electrical Work</span>
-                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3">Live 3D Electrical Distribution Network</h2>
-                <p class="text-slate-600 text-sm sm:text-base mt-2">Transformer se ghar tak — poora LT/HT distribution network ka 3D working model dekhein.</p>
+                <span class="text-xs font-bold uppercase tracking-widest text-orange-600 bg-orange-100 px-3 py-1 rounded-full">RK Foundation Projects</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading text-slate-900 mt-3">LT/HT & Solar EPC Excellence</h2>
+                <p class="text-slate-600 text-sm sm:text-base mt-2">Leading Electrical & Solar Infrastructure Solutions in Madhya Pradesh.</p>
             </div>
 
             <div class="bg-white rounded-3xl border-2 border-slate-200 card-shadow overflow-hidden">
-                <!-- Header Bar -->
-                <div class="bg-slate-900 text-white px-6 py-4 flex flex-wrap items-center justify-between gap-4">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-3 h-3 rounded-full bg-blue-400 badge-pulse"></div>
-                        <span class="font-bold text-sm sm:text-base font-heading">Interactive 3D LT/HT Distribution Network (ट्रांसफार्मर से घर तक)</span>
-                    </div>
-                    <div class="flex items-center space-x-2 text-xs text-slate-300 bg-slate-800 px-3 py-1.5 rounded-lg border border-slate-700">
-                        <i data-lucide="mouse-pointer" class="w-3.5 h-3.5 text-blue-400"></i>
-                        <span>Drag to Rotate | Scroll to Zoom</span>
-                    </div>
-                </div>
-
-                <!-- 3D Canvas -->
-                <div class="relative w-full h-[420px] sm:h-[500px] lg:h-[560px] bg-gradient-to-b from-sky-100 via-blue-50 to-slate-100">
-                    <canvas id="ltht3dCanvas" class="w-full h-full cursor-grab active:cursor-grabbing block"></canvas>
-
-                    <!-- Legend Overlay -->
-                    <div class="absolute top-4 left-4 bg-white/90 backdrop-blur p-3 sm:p-4 rounded-2xl border border-slate-200 text-xs shadow-md pointer-events-none hidden sm:block">
-                        <div class="font-bold text-slate-900 mb-2 flex items-center space-x-1.5">
-                            <i data-lucide="zap" class="w-4 h-4 text-blue-600"></i>
-                            <span>Power Distribution</span>
-                        </div>
-                        <div class="space-y-1.5 text-[11px] text-slate-600">
-                            <div class="flex items-center space-x-2">
-                                <span class="w-3 h-3 rounded bg-red-500 shrink-0"></span>
-                                <span><strong>HT Line:</strong> 3-Phase 11kV (Khambhe)</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="w-3 h-3 rounded bg-amber-400 shrink-0"></span>
-                                <span><strong>Transformer:</strong> 11kV → 415V Step-Down</span>
-                            </div>
-                            <div class="flex items-center space-x-2">
-                                <span class="w-3 h-3 rounded bg-blue-500 shrink-0"></span>
-                                <span><strong>LT Line:</strong> Ghar tak bijli supply</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 4 Step Info Bar -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200 bg-slate-50 border-t border-slate-200">
-                    <div class="p-5 flex items-start space-x-3">
-                        <div class="w-9 h-9 rounded-xl bg-red-100 text-red-600 flex items-center justify-center font-black font-heading shrink-0 text-sm">1</div>
-                        <div>
-                            <div class="font-bold text-sm text-slate-900">HT 3-Phase Line</div>
-                            <div class="text-xs text-slate-500 mt-0.5">11kV high tension line khambon se aati hai.</div>
-                        </div>
-                    </div>
-                    <div class="p-5 flex items-start space-x-3">
-                        <div class="w-9 h-9 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-black font-heading shrink-0 text-sm">2</div>
-                        <div>
-                            <div class="font-bold text-sm text-slate-900">Distribution Transformer</div>
-                            <div class="text-xs text-slate-500 mt-0.5">11kV ko 415V mein step-down karta hai.</div>
-                        </div>
-                    </div>
-                    <div class="p-5 flex items-start space-x-3">
-                        <div class="w-9 h-9 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center font-black font-heading shrink-0 text-sm">3</div>
-                        <div>
-                            <div class="font-bold text-sm text-slate-900">LT Distribution Line</div>
-                            <div class="text-xs text-slate-500 mt-0.5">415V line sabhi gharon tak pahunchti hai.</div>
-                        </div>
-                    </div>
-                    <div class="p-5 flex items-start space-x-3">
-                        <div class="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-black font-heading shrink-0 text-sm">4</div>
-                        <div>
-                            <div class="font-bold text-sm text-slate-900">Ghar mein Supply</div>
-                            <div class="text-xs text-slate-500 mt-0.5">Meter se ghar ke andar bijli aati hai.</div>
-                        </div>
-                    </div>
+                <!-- Banner Image Container -->
+                <div class="relative w-full overflow-hidden bg-slate-100 flex items-center justify-center">
+                    <!-- Power Distribution Network Infographic Banner -->
+                    <img src="banner.png" alt="RK Foundation LT/HT Power Distribution Network Infographic" class="w-full h-auto object-cover" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1509391365360-e835f37f63f4?auto=format&fit=crop&w=1920&q=80';">
                 </div>
             </div>
         </div>
@@ -1325,7 +1260,7 @@
         })();
 
         // ==========================================
-        // LT/HT Electrical Distribution 3D Scene - Low-Poly Cartoon Isometric Style
+        // LT/HT Electrical Distribution 3D Scene - Step 1: 6 Houses
         // ==========================================
         (function initLTHTModel() {
             const canvas = document.getElementById('ltht3dCanvas');
@@ -1358,462 +1293,193 @@
             const sunLight = new THREE.DirectionalLight(0xfffbe6, 1.8);
             sunLight.position.set(15, 25, 15);
             sunLight.castShadow = true;
-            sunLight.shadow.mapSize.set(2048, 2048);
-            sunLight.shadow.camera.left = -30; sunLight.shadow.camera.right = 30;
-            sunLight.shadow.camera.top = 30; sunLight.shadow.camera.bottom = -30;
-            sunLight.shadow.camera.far = 80;
             scene.add(sunLight);
-            const fillL = new THREE.DirectionalLight(0xc7d8ff, 0.5);
-            fillL.position.set(-10, 8, -10); scene.add(fillL);
 
             const world = new THREE.Group();
             scene.add(world);
-
-            // Sun in sky
-            const sunBall = new THREE.Mesh(new THREE.SphereGeometry(1.2, 16, 16),
-                new THREE.MeshBasicMaterial({ color: 0xfde047 }));
-            sunBall.position.set(18, 22, -12); world.add(sunBall);
-            for (var si = 0; si < 8; si++) {
-                var sang = (si / 8) * Math.PI * 2;
-                var ray = new THREE.Mesh(new THREE.BoxGeometry(0.14, 2.0, 0.14),
-                    new THREE.MeshBasicMaterial({ color: 0xfde047 }));
-                ray.position.set(18 + Math.cos(sang)*2.4, 22 + Math.sin(sang)*2.4, -12);
-                ray.rotation.z = sang; world.add(ray);
-            }
-
-            // Clouds
-            function makeCloud(x, y, z) {
-                var cg = new THREE.Group();
-                var parts = [[0,0,0,1.4],[1.2,0.3,0,1.0],[-1.2,0.2,0,1.0],[0.5,0,0.8,0.9],[-0.5,0,0.8,0.9]];
-                parts.forEach(function(p) {
-                    var c = new THREE.Mesh(new THREE.SphereGeometry(p[3], 8, 8),
-                        new THREE.MeshLambertMaterial({ color: 0xffffff }));
-                    c.position.set(p[0], p[1], p[2]); cg.add(c);
-                });
-                cg.position.set(x, y, z); world.add(cg); return cg;
-            }
-            var clouds = [makeCloud(-18,18,-8), makeCloud(14,16,8), makeCloud(0,20,-15), makeCloud(-8,17,12)];
 
             // Ground
             var ground = new THREE.Mesh(new THREE.PlaneGeometry(70, 70),
                 new THREE.MeshLambertMaterial({ color: 0x5ebd3e }));
             ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; world.add(ground);
 
-            // Grass patches
-            for (var gi = 0; gi < 30; gi++) {
-                var gp = new THREE.Mesh(new THREE.CircleGeometry(1.0 + gi%4*0.3, 7),
-                    new THREE.MeshLambertMaterial({ color: gi%2===0 ? 0x4caf50 : 0x66bb6a }));
-                gp.rotation.x = -Math.PI/2;
-                gp.position.set((gi%8-3.5)*6.0, 0.01, (Math.floor(gi/8)-1.5)*7);
-                world.add(gp);
-            }
-
             // Central Road
             var road = new THREE.Mesh(new THREE.BoxGeometry(5.5, 0.08, 52),
                 new THREE.MeshLambertMaterial({ color: 0x78909c }));
             road.receiveShadow = true; world.add(road);
-            [-2.9, 2.9].forEach(function(sx) {
-                var sw = new THREE.Mesh(new THREE.BoxGeometry(0.55, 0.1, 52),
-                    new THREE.MeshLambertMaterial({ color: 0xb0bec5 }));
-                sw.position.set(sx, 0.01, 0); world.add(sw);
-            });
-            for (var dz = -24; dz <= 24; dz += 3.5) {
-                var dash = new THREE.Mesh(new THREE.BoxGeometry(0.2, 0.09, 1.5),
-                    new THREE.MeshBasicMaterial({ color: 0xffd600 }));
-                dash.position.set(0, 0.05, dz); world.add(dash);
-            }
-
-            // Cartoon Tree
-            function makeTree(x, z, leafColor) {
-                var tg = new THREE.Group();
-                var trunk = new THREE.Mesh(new THREE.CylinderGeometry(0.18, 0.24, 1.3, 8),
-                    new THREE.MeshLambertMaterial({ color: 0x795548 }));
-                trunk.position.y = 0.65; trunk.castShadow = true; tg.add(trunk);
-                [[1.5,1.8],[1.1,2.9],[0.75,3.75]].forEach(function(lr) {
-                    var leaf = new THREE.Mesh(new THREE.ConeGeometry(lr[0], 1.5, 8),
-                        new THREE.MeshLambertMaterial({ color: leafColor }));
-                    leaf.position.y = lr[1]; leaf.castShadow = true; tg.add(leaf);
-                });
-                tg.position.set(x, 0, z); world.add(tg); return tg;
-            }
-            var leafColors = [0x2e7d32,0x388e3c,0x43a047,0x1b5e20,0x558b2f,0x33691e];
-            [[-6,-15],[-6,-7],[-6,1],[-6,9],[-6,17],[6,-15],[6,-7],[6,1],[6,9],[6,17],
-             [-18,-8],[-18,5],[18,-8],[18,5],[-14,-20],[14,-20],[-14,20],[14,20]
-            ].forEach(function(tp, ti) { makeTree(tp[0], tp[1], leafColors[ti % leafColors.length]); });
 
             // House colors
-            var wallColors=[0xfff9c4,0xfce4ec,0xe3f2fd,0xf3e5f5,0xe8f5e9,0xfff3e0,0xe0f7fa,0xfbe9e7];
-            var roofColors=[0xe53935,0x1e88e5,0x43a047,0x8e24aa,0xfb8c00,0x00acc1,0xd81b60,0x6d4c41];
-            var doorColors=[0x5d4037,0x37474f,0x4e342e,0x263238,0x3e2723,0x1a237e,0x880e4f,0x33691e];
+            var wallColors = [0xfff9c4, 0xfce4ec, 0xe3f2fd, 0xf3e5f5, 0xe8f5e9, 0xfff3e0];
+            var roofColors = [0xe53935, 0x1e88e5, 0x43a047, 0x8e24aa, 0xfb8c00, 0x00acc1];
+            var doorColors = [0x5d4037, 0x37474f, 0x4e342e, 0x263238, 0x3e2723, 0x1a237e];
 
             function buildHouse(x, z, idx) {
                 var hg = new THREE.Group();
                 hg.position.set(x, 0, z);
-                var wc=wallColors[idx%8], rc=roofColors[idx%8], dc=doorColors[idx%8];
+                var wc = wallColors[idx % 6], rc = roofColors[idx % 6], dc = doorColors[idx % 6];
 
                 // Foundation
-                var found = new THREE.Mesh(new THREE.BoxGeometry(4.2,0.22,3.8),
-                    new THREE.MeshLambertMaterial({color:0x9e9e9e}));
-                found.position.y=0.11; found.castShadow=true; found.receiveShadow=true; hg.add(found);
+                var found = new THREE.Mesh(new THREE.BoxGeometry(4.2, 0.22, 3.8),
+                    new THREE.MeshLambertMaterial({ color: 0x9e9e9e }));
+                found.position.y = 0.11; found.castShadow = true; found.receiveShadow = true; hg.add(found);
 
                 // Walls
-                var walls = new THREE.Mesh(new THREE.BoxGeometry(4.0,2.8,3.6),
-                    new THREE.MeshLambertMaterial({color:wc}));
-                walls.position.y=1.62; walls.castShadow=true; walls.receiveShadow=true; hg.add(walls);
+                var walls = new THREE.Mesh(new THREE.BoxGeometry(4.0, 2.8, 3.6),
+                    new THREE.MeshLambertMaterial({ color: wc }));
+                walls.position.y = 1.62; walls.castShadow = true; walls.receiveShadow = true; hg.add(walls);
 
                 // Roof pyramid
-                var roof = new THREE.Mesh(new THREE.ConeGeometry(3.0,1.8,4),
-                    new THREE.MeshLambertMaterial({color:rc}));
-                roof.position.y=3.9; roof.rotation.y=Math.PI/4; roof.castShadow=true; hg.add(roof);
-
-                // Roof overhang
-                var ov = new THREE.Mesh(new THREE.BoxGeometry(4.4,0.12,3.9),
-                    new THREE.MeshLambertMaterial({color:rc}));
-                ov.position.y=3.05; hg.add(ov);
+                var roof = new THREE.Mesh(new THREE.ConeGeometry(3.0, 1.8, 4),
+                    new THREE.MeshLambertMaterial({ color: rc }));
+                roof.position.y = 3.9; roof.rotation.y = Math.PI / 4; roof.castShadow = true; hg.add(roof);
 
                 // Door
-                var df = new THREE.Mesh(new THREE.BoxGeometry(0.94,1.52,0.08),
-                    new THREE.MeshLambertMaterial({color:0xffffff}));
-                df.position.set(0,0.98,1.815); hg.add(df);
-                var door = new THREE.Mesh(new THREE.BoxGeometry(0.78,1.4,0.1),
-                    new THREE.MeshLambertMaterial({color:dc}));
-                door.position.set(0,0.92,1.82); hg.add(door);
-                var knob = new THREE.Mesh(new THREE.SphereGeometry(0.06,6,6),
-                    new THREE.MeshLambertMaterial({color:0xffd700}));
-                knob.position.set(0.3,0.88,1.88); hg.add(knob);
-
-                // Front windows x2
-                [-1.15, 1.15].forEach(function(wx) {
-                    var wframe = new THREE.Mesh(new THREE.BoxGeometry(0.96,0.82,0.08),
-                        new THREE.MeshLambertMaterial({color:0xffffff}));
-                    wframe.position.set(wx,2.1,1.815); hg.add(wframe);
-                    var wglass = new THREE.Mesh(new THREE.BoxGeometry(0.8,0.66,0.07),
-                        new THREE.MeshLambertMaterial({color:0x81d4fa,transparent:true,opacity:0.85}));
-                    wglass.position.set(wx,2.1,1.82); hg.add(wglass);
-                    var wh = new THREE.Mesh(new THREE.BoxGeometry(0.8,0.06,0.08),
-                        new THREE.MeshLambertMaterial({color:0xffffff}));
-                    wh.position.set(wx,2.1,1.826); hg.add(wh);
-                    var wv = new THREE.Mesh(new THREE.BoxGeometry(0.06,0.66,0.08),
-                        new THREE.MeshLambertMaterial({color:0xffffff}));
-                    wv.position.set(wx,2.1,1.826); hg.add(wv);
-                    var sill = new THREE.Mesh(new THREE.BoxGeometry(1.05,0.1,0.24),
-                        new THREE.MeshLambertMaterial({color:0xeeeeee}));
-                    sill.position.set(wx,1.71,1.87); hg.add(sill);
-                    var shade = new THREE.Mesh(new THREE.BoxGeometry(1.0,0.07,0.28),
-                        new THREE.MeshLambertMaterial({color:rc}));
-                    shade.position.set(wx,2.52,1.94); hg.add(shade);
-                });
-
-                // Side window
-                var swx = x > 0 ? -1 : 1;
-                var swg = new THREE.Mesh(new THREE.BoxGeometry(0.08,0.7,0.85),
-                    new THREE.MeshLambertMaterial({color:0x81d4fa,transparent:true,opacity:0.85}));
-                swg.position.set(swx*2.04,2.1,0); hg.add(swg);
-                var swf = new THREE.Mesh(new THREE.BoxGeometry(0.07,0.86,0.98),
-                    new THREE.MeshLambertMaterial({color:0xffffff}));
-                swf.position.set(swx*2.03,2.1,0); hg.add(swf);
-
-                // Compound walls
-                var cwM = new THREE.MeshLambertMaterial({color:0xeeeeee});
-                var cwT = new THREE.MeshLambertMaterial({color:rc});
-                [
-                    [1.3,0.5,0.14,-1.35,0.28,2.6],[1.3,0.5,0.14,1.35,0.28,2.6],
-                    [4.0,0.5,0.14,0,0.28,-2.6],[0.14,0.5,5.0, x>0?-2.2:2.2, 0.28,0]
-                ].forEach(function(cd) {
-                    var cw = new THREE.Mesh(new THREE.BoxGeometry(cd[0],cd[1],cd[2]), cwM);
-                    cw.position.set(cd[3],cd[4],cd[5]); cw.castShadow=true; hg.add(cw);
-                    var cap = new THREE.Mesh(new THREE.BoxGeometry(cd[0]+0.05,0.1,cd[2]+0.05), cwT);
-                    cap.position.set(cd[3],cd[4]+0.3,cd[5]); hg.add(cap);
-                });
-
-                // Porch
-                var porch = new THREE.Mesh(new THREE.BoxGeometry(2.0,0.1,1.0),
-                    new THREE.MeshLambertMaterial({color:0xbdbdbd}));
-                porch.position.set(0,0.1,2.25); hg.add(porch);
+                var door = new THREE.Mesh(new THREE.BoxGeometry(0.78, 1.4, 0.1),
+                    new THREE.MeshLambertMaterial({ color: dc }));
+                door.position.set(0, 0.92, 1.82); hg.add(door);
 
                 // Meter box + LED
-                var mBox = new THREE.Mesh(new THREE.BoxGeometry(0.26,0.34,0.12),
-                    new THREE.MeshLambertMaterial({color:0x263238}));
-                mBox.position.set(x>0?-2.1:2.1, 1.9, 0.8); hg.add(mBox);
-                var mLed = new THREE.Mesh(new THREE.BoxGeometry(0.02,0.16,0.18),
-                    new THREE.MeshBasicMaterial({color:0x00e676}));
-                mLed.position.set(x>0?-2.24:2.24, 1.9, 0.8); hg.add(mLed);
+                var mBox = new THREE.Mesh(new THREE.BoxGeometry(0.26, 0.34, 0.12),
+                    new THREE.MeshLambertMaterial({ color: 0x263238 }));
+                mBox.position.set(x > 0 ? -2.1 : 2.1, 1.9, 0.8); hg.add(mBox);
+                var mLed = new THREE.Mesh(new THREE.BoxGeometry(0.02, 0.16, 0.18),
+                    new THREE.MeshBasicMaterial({ color: 0x00e676 }));
+                mLed.position.set(x > 0 ? -2.24 : 2.24, 1.9, 0.8); hg.add(mLed);
                 hg.userData.mLed = mLed;
 
                 world.add(hg); return hg;
             }
 
-            var houseZPos = [-12, -4, 4, 12];
-            var houses = [];
-            houseZPos.forEach(function(z, i) {
-                houses.push(buildHouse(-11, z, i));
-                houses.push(buildHouse( 11, z, i+4));
-            });
-
-            // 3-Phase Pole
+            // Electric Pole Function
             function buildPole(x, z) {
                 var pg = new THREE.Group();
                 pg.position.set(x, 0, z);
-                var pole = new THREE.Mesh(new THREE.CylinderGeometry(0.1, 0.18, 10, 10),
-                    new THREE.MeshLambertMaterial({color:0x90a4ae}));
-                pole.position.y=5; pole.castShadow=true; pg.add(pole);
-                var xarm = new THREE.Mesh(new THREE.BoxGeometry(0.1,0.1,3.2),
-                    new THREE.MeshLambertMaterial({color:0x546e7a}));
-                xarm.position.y=9.4; pg.add(xarm);
-                [-0.7,0.7].forEach(function(zb) {
-                    var brace = new THREE.Mesh(new THREE.CylinderGeometry(0.04,0.04,1.1,6),
-                        new THREE.MeshLambertMaterial({color:0x546e7a}));
-                    brace.position.set(0,8.85,zb);
-                    brace.rotation.z = zb>0?0.45:-0.45; pg.add(brace);
-                });
-                [-1.1,0,1.1].forEach(function(zo) {
-                    for (var d=0;d<3;d++) {
-                        var disc = new THREE.Mesh(new THREE.CylinderGeometry(0.1-d*0.015,0.1-d*0.015,0.07,10),
-                            new THREE.MeshLambertMaterial({color:0x8d4004}));
-                        disc.position.set(0,9.65+d*0.1,zo); pg.add(disc);
-                    }
-                    var pin = new THREE.Mesh(new THREE.CylinderGeometry(0.03,0.03,0.18,6),
-                        new THREE.MeshLambertMaterial({color:0xd4a017}));
-                    pin.position.set(0,9.93,zo); pg.add(pin);
-                });
-                var base = new THREE.Mesh(new THREE.BoxGeometry(0.6,0.15,0.6),
-                    new THREE.MeshLambertMaterial({color:0x607d8b}));
-                base.position.y=0.07; pg.add(base);
-                var board = new THREE.Mesh(new THREE.BoxGeometry(0.02,0.4,0.3),
-                    new THREE.MeshBasicMaterial({color:0xffeb3b}));
-                board.position.set(0.15,3,0); pg.add(board);
-                world.add(pg); return pg;
-            }
-            [-9,0,9].forEach(function(z) { buildPole(-3.5,z); buildPole(3.5,z); });
+                var pole = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.12, 7.0, 8),
+                    new THREE.MeshLambertMaterial({ color: 0x90a4ae }));
+                pole.position.y = 3.5; pole.castShadow = true; pg.add(pole);
 
-            // Transformer
-            var txG = new THREE.Group();
-            var plinth = new THREE.Mesh(new THREE.BoxGeometry(3.8,0.4,2.8),
-                new THREE.MeshLambertMaterial({color:0x9e9e9e}));
-            plinth.position.y=0.2; plinth.castShadow=true; txG.add(plinth);
-            var stripe = new THREE.Mesh(new THREE.BoxGeometry(3.8,0.06,2.8),
-                new THREE.MeshLambertMaterial({color:0xffeb3b}));
-            stripe.position.y=0.43; txG.add(stripe);
-            var tank = new THREE.Mesh(new THREE.BoxGeometry(2.2,2.6,1.6),
-                new THREE.MeshLambertMaterial({color:0x1a237e}));
-            tank.position.y=1.7; tank.castShadow=true; txG.add(tank);
-            for (var fi=-0.6;fi<=0.6;fi+=0.2) {
-                var fin = new THREE.Mesh(new THREE.BoxGeometry(0.05,2.0,1.5),
-                    new THREE.MeshLambertMaterial({color:0x455a64}));
-                fin.position.set(1.18,1.7,fi); txG.add(fin);
+                // Cross arm
+                var xarm = new THREE.Mesh(new THREE.BoxGeometry(0.08, 0.08, 1.8),
+                    new THREE.MeshLambertMaterial({ color: 0x546e7a }));
+                xarm.position.y = 6.6; pg.add(xarm);
+
+                // Insulators
+                [-0.7, 0, 0.7].forEach(function(zo) {
+                    var ins = new THREE.Mesh(new THREE.CylinderGeometry(0.05, 0.05, 0.12, 6),
+                        new THREE.MeshLambertMaterial({ color: 0x8d4004 }));
+                    ins.position.set(0, 6.72, zo); pg.add(ins);
+                });
+
+                world.add(pg);
+                return pg;
             }
-            var conserv = new THREE.Mesh(new THREE.CylinderGeometry(0.25,0.25,1.4,12),
-                new THREE.MeshLambertMaterial({color:0x263238}));
-            conserv.rotation.z=Math.PI/2; conserv.position.set(0,3.2,0); txG.add(conserv);
-            [-0.5,0,0.5].forEach(function(zo) {
-                for (var s=0;s<4;s++) {
-                    var bd = new THREE.Mesh(new THREE.CylinderGeometry(0.1-s*0.01,0.1-s*0.01,0.1,10),
-                        new THREE.MeshLambertMaterial({color:0xc62828}));
-                    bd.position.set(-0.8, 3.4+s*0.12, zo); txG.add(bd);
-                }
-            });
-            [-0.5,0,0.5].forEach(function(zo) {
-                for (var s=0;s<3;s++) {
-                    var bd = new THREE.Mesh(new THREE.CylinderGeometry(0.09,0.09,0.08,10),
-                        new THREE.MeshLambertMaterial({color:0x1565c0}));
-                    bd.position.set(0.8, 3.3+s*0.1, zo); txG.add(bd);
-                }
-            });
-            var txPlate = new THREE.Mesh(new THREE.BoxGeometry(0.05,0.5,0.7),
-                new THREE.MeshBasicMaterial({color:0xffd600}));
-            txPlate.position.set(1.14,1.2,0); txG.add(txPlate);
-            world.add(txG);
 
             // Wire helper
-            function makeWire(p1,p2,color,r) {
-                r = r || 0.03;
-                var dir = new THREE.Vector3().subVectors(p2,p1);
+            function makeWire(p1, p2, color, r) {
+                r = r || 0.025;
+                var dir = new THREE.Vector3().subVectors(p2, p1);
                 var len = dir.length();
-                var mid = new THREE.Vector3().addVectors(p1,p2).multiplyScalar(0.5);
-                var mesh = new THREE.Mesh(new THREE.CylinderGeometry(r,r,len,6),
-                    new THREE.MeshLambertMaterial({color:color}));
+                var mid = new THREE.Vector3().addVectors(p1, p2).multiplyScalar(0.5);
+                var mesh = new THREE.Mesh(new THREE.CylinderGeometry(r, r, len, 6),
+                    new THREE.MeshLambertMaterial({ color: color }));
                 mesh.position.copy(mid);
-                mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0,1,0), dir.normalize());
+                mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.normalize());
                 world.add(mesh);
             }
 
-            // HT lines: pole to pole across road (3 phases)
-            [-9,0,9].forEach(function(z) {
-                [-1.1,0,1.1].forEach(function(zo) {
-                    makeWire(new THREE.Vector3(-3.5,9.93,z+zo), new THREE.Vector3(3.5,9.93,z+zo), 0xef5350, 0.032);
-                });
-            });
-            // HT lines: poles to transformer
-            [-9,0,9].forEach(function(z) {
-                [-1.1,0,1.1].forEach(function(zo) {
-                    makeWire(new THREE.Vector3(-3.5,9.93,z+zo), new THREE.Vector3(-0.8,3.5,zo*0.3), 0xef5350, 0.026);
-                    makeWire(new THREE.Vector3(3.5,9.93,z+zo),  new THREE.Vector3(-0.8,3.5,zo*0.3), 0xef5350, 0.026);
-                });
-            });
-            // LT lines: transformer to houses
-            houseZPos.forEach(function(z) {
-                makeWire(new THREE.Vector3(0.8,3.3,0), new THREE.Vector3(-10.0,2.0,z+0.8), 0x1e88e5, 0.024);
-                makeWire(new THREE.Vector3(0.8,3.3,0), new THREE.Vector3( 10.0,2.0,z+0.8), 0x1e88e5, 0.024);
-            });
+            // 6 Houses: 3 on left, 3 on right
+            var houseZPos = [-8, 0, 8];
+            var houses = [];
+            var poles = [];
 
-            // Particles
-            function makeParticle(color, size) {
-                var p = new THREE.Mesh(new THREE.SphereGeometry(size||0.14,8,8),
-                    new THREE.MeshBasicMaterial({color:color}));
-                world.add(p); return p;
-            }
-            var htCurves = [];
-            [-9,0,9].forEach(function(z) {
-                htCurves.push(new THREE.CatmullRomCurve3([
-                    new THREE.Vector3(-3.5,9.93,z), new THREE.Vector3(-1.5,7.5,z*0.5), new THREE.Vector3(-0.8,3.5,0)]));
-                htCurves.push(new THREE.CatmullRomCurve3([
-                    new THREE.Vector3(3.5,9.93,z), new THREE.Vector3(1.5,7.5,z*0.5), new THREE.Vector3(-0.8,3.5,0)]));
-            });
-            var htParts = htCurves.map(function() { return makeParticle(0xff5252,0.16); });
-
-            var ltCurves = [];
-            houseZPos.forEach(function(z) {
-                ltCurves.push(new THREE.CatmullRomCurve3([
-                    new THREE.Vector3(0.8,3.3,0), new THREE.Vector3(-5,2.8,z*0.4), new THREE.Vector3(-10.0,2.0,z+0.8)]));
-                ltCurves.push(new THREE.CatmullRomCurve3([
-                    new THREE.Vector3(0.8,3.3,0), new THREE.Vector3(5,2.8,z*0.4), new THREE.Vector3(10.0,2.0,z+0.8)]));
-            });
-            var ltParts = ltCurves.map(function() { return makeParticle(0x42a5f5,0.13); });
-
-            // Cartoon people
-            var skinCol=[0xffccaa,0xf5cba7,0xffb347,0xdeb887,0xffdab9,0xffe4c4,0xfaebd7,0xffd5b1];
-            var clothCol=[0xf44336,0x2196f3,0x4caf50,0x9c27b0,0xff9800,0x00bcd4,0xe91e63,0x8bc34a];
-
-            function makePerson(x, z, idx) {
-                var pg = new THREE.Group();
-                pg.position.set(x, 0, z);
-                var sk = new THREE.MeshLambertMaterial({color:skinCol[idx%8]});
-                var cl = new THREE.MeshLambertMaterial({color:clothCol[idx%8]});
-                var pt = new THREE.MeshLambertMaterial({color:0x37474f});
-                var hr = new THREE.MeshLambertMaterial({color:0x1a1a1a});
-                // Shoes
-                [-0.1,0.1].forEach(function(sx) {
-                    var s = new THREE.Mesh(new THREE.BoxGeometry(0.18,0.1,0.26),
-                        new THREE.MeshLambertMaterial({color:0x212121}));
-                    s.position.set(sx,0.05,0.04); pg.add(s);
-                });
-                // Legs
-                [-0.1,0.1].forEach(function(lx) {
-                    var l = new THREE.Mesh(new THREE.CylinderGeometry(0.075,0.065,0.52,8),pt);
-                    l.position.set(lx,0.4,0); pg.add(l);
-                });
-                // Torso
-                var torso = new THREE.Mesh(new THREE.CylinderGeometry(0.17,0.14,0.52,10),cl);
-                torso.position.y=0.94; pg.add(torso);
-                // Neck
-                var neck = new THREE.Mesh(new THREE.CylinderGeometry(0.065,0.065,0.13,8),sk);
-                neck.position.y=1.29; pg.add(neck);
-                // Head
-                var head = new THREE.Mesh(new THREE.SphereGeometry(0.21,12,12),sk);
-                head.position.y=1.58; head.castShadow=true;
-                pg.userData.head = head; pg.add(head);
-                // Hair
-                var hair = new THREE.Mesh(new THREE.SphereGeometry(0.225,12,12,0,Math.PI*2,0,Math.PI*0.52),hr);
-                hair.position.y=1.62; pg.add(hair);
-                // Eyes
-                [-0.075,0.075].forEach(function(ex) {
-                    var eye = new THREE.Mesh(new THREE.SphereGeometry(0.038,6,6),
-                        new THREE.MeshBasicMaterial({color:0xffffff}));
-                    eye.position.set(ex,1.64,0.18); pg.add(eye);
-                    var pupil = new THREE.Mesh(new THREE.SphereGeometry(0.02,6,6),
-                        new THREE.MeshBasicMaterial({color:0x111111}));
-                    pupil.position.set(ex,1.64,0.21); pg.add(pupil);
-                });
-                // Arms
-                var armL = new THREE.Mesh(new THREE.CylinderGeometry(0.058,0.05,0.42,8),cl);
-                armL.rotation.z = Math.PI/3.5; armL.position.set(-0.27,0.94,0);
-                pg.userData.armL = armL; pg.add(armL);
-                var armR = new THREE.Mesh(new THREE.CylinderGeometry(0.058,0.05,0.42,8),sk);
-                armR.rotation.z = -Math.PI/4; armR.position.set(0.27,0.94,0);
-                pg.userData.armR = armR; pg.add(armR);
-                world.add(pg); return pg;
-            }
-
-            var people = [];
             houseZPos.forEach(function(z, i) {
-                people.push(makePerson(-8.8, z+1.6, i));
-                people.push(makePerson(-9.5, z-0.7, i+4));
-                people.push(makePerson( 8.8, z+1.6, i+2));
-                people.push(makePerson( 9.5, z-0.7, i+6));
+                // Left house & its pole
+                houses.push(buildHouse(-11, z, i));
+                poles.push(buildPole(-5.5, z));
+
+                // Right house & its pole
+                houses.push(buildHouse(11, z, i + 3));
+                poles.push(buildPole(5.5, z));
+
+                // Wire from pole to house meter
+                makeWire(new THREE.Vector3(-5.5, 6.6, z), new THREE.Vector3(-8.9, 1.9, z + 0.8), 0x1e88e5, 0.02);
+                makeWire(new THREE.Vector3(5.5, 6.6, z), new THREE.Vector3(8.9, 1.9, z + 0.8), 0x1e88e5, 0.02);
             });
 
-            // Street lamps
-            function makeLamp(x, z) {
-                var lg = new THREE.Group();
-                var post = new THREE.Mesh(new THREE.CylinderGeometry(0.06,0.08,4.5,8),
-                    new THREE.MeshLambertMaterial({color:0x78909c}));
-                post.position.y=2.25; post.castShadow=true; lg.add(post);
-                var arm = new THREE.Mesh(new THREE.BoxGeometry(0.06,0.06,0.9),
-                    new THREE.MeshLambertMaterial({color:0x607d8b}));
-                arm.position.set(0,4.45,0.45); lg.add(arm);
-                var bulb = new THREE.Mesh(new THREE.SphereGeometry(0.18,8,8),
-                    new THREE.MeshBasicMaterial({color:0xfff9c4}));
-                bulb.position.set(0,4.42,0.9); lg.add(bulb);
-                var cover = new THREE.Mesh(new THREE.ConeGeometry(0.28,0.22,8),
-                    new THREE.MeshLambertMaterial({color:0x546e7a}));
-                cover.position.set(0,4.55,0.9); lg.add(cover);
-                var lpt = new THREE.PointLight(0xfff9c4,0.6,6);
-                lpt.position.set(0,4.4,0.9); lg.add(lpt);
-                lg.userData.light = lpt;
-                lg.position.set(x,0,z); world.add(lg); return lg;
+            // Outdoor Grid Substation behind the pink house (left side, z = 0, x = -19)
+            function buildSubstation(x, z) {
+                var subG = new THREE.Group();
+                subG.position.set(x, 0, z);
+
+                // Concrete Plinth
+                var plinth = new THREE.Mesh(new THREE.BoxGeometry(6.0, 0.25, 5.0),
+                    new THREE.MeshLambertMaterial({ color: 0x9e9e9e }));
+                plinth.position.y = 0.125; plinth.castShadow = true; plinth.receiveShadow = true; subG.add(plinth);
+
+                // Control Room Building
+                var ctrlWalls = new THREE.Mesh(new THREE.BoxGeometry(2.2, 2.2, 2.0),
+                    new THREE.MeshLambertMaterial({ color: 0xe0f7fa }));
+                ctrlWalls.position.set(-1.5, 1.35, 1.2); ctrlWalls.castShadow = true; subG.add(ctrlWalls);
+
+                var ctrlRoof = new THREE.Mesh(new THREE.BoxGeometry(2.5, 0.15, 2.3),
+                    new THREE.MeshLambertMaterial({ color: 0x37474f }));
+                ctrlRoof.position.set(-1.5, 2.52, 1.2); subG.add(ctrlRoof);
+
+                // Power Transformer
+                var txTank = new THREE.Mesh(new THREE.BoxGeometry(1.6, 2.0, 1.2),
+                    new THREE.MeshLambertMaterial({ color: 0x1565c0 }));
+                txTank.position.set(1.2, 1.25, -1.0); txTank.castShadow = true; subG.add(txTank);
+
+                // Cooling fins
+                for (var fi = -0.5; fi <= 0.5; fi += 0.25) {
+                    var fin = new THREE.Mesh(new THREE.BoxGeometry(0.04, 1.6, 1.1),
+                        new THREE.MeshLambertMaterial({ color: 0x37474f }));
+                    fin.position.set(1.2 + fi, 1.25, -0.35); subG.add(fin);
+                }
+
+                // Bushings
+                [-0.3, 0, 0.3].forEach(function(bx) {
+                    var bush = new THREE.Mesh(new THREE.CylinderGeometry(0.06, 0.08, 0.6, 8),
+                        new THREE.MeshLambertMaterial({ color: 0xd4a017 }));
+                    bush.position.set(1.2 + bx, 2.55, -1.0); subG.add(bush);
+                });
+
+                // Substation Perimeter posts
+                [-2.9, 2.9].forEach(function(fx) {
+                    [-2.4, 2.4].forEach(function(fz) {
+                        var post = new THREE.Mesh(new THREE.CylinderGeometry(0.04, 0.04, 1.8, 6),
+                            new THREE.MeshLambertMaterial({ color: 0x546e7a }));
+                        post.position.set(fx, 1.0, fz); subG.add(post);
+                    });
+                });
+
+                // Substation Warning Sign Board
+                var sign = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.4, 0.05),
+                    new THREE.MeshBasicMaterial({ color: 0xffeb3b }));
+                sign.position.set(0, 1.8, 2.52); subG.add(sign);
+
+                world.add(subG);
+                return subG;
             }
-            var lamps = [];
-            [-10,-4,4,10].forEach(function(z) {
-                lamps.push(makeLamp(-3.8,z)); lamps.push(makeLamp(3.8,z));
-            });
 
-            var txLight = new THREE.PointLight(0x4fc3f7,1.2,12);
-            txLight.position.set(0,4.5,0); world.add(txLight);
+            buildSubstation(-19, 0);
 
-            // Animation
+            // Connect substation to nearest pole
+            makeWire(new THREE.Vector3(-19, 3.0, 0), new THREE.Vector3(-5.5, 6.6, 0), 0xef5350, 0.035);
+
+            // Animation Loop
             var clock2 = new THREE.Clock();
             function animateLTHT() {
                 requestAnimationFrame(animateLTHT);
                 var t = clock2.getElapsedTime();
 
-                htParts.forEach(function(p,i) {
-                    var o = (t*0.28 + i*0.18) % 1;
-                    p.position.copy(htCurves[i].getPointAt(o));
-                });
-                ltParts.forEach(function(p,i) {
-                    var o = (t*0.42 + i*0.12) % 1;
-                    p.position.copy(ltCurves[i].getPointAt(o));
-                });
-
-                txLight.intensity = 0.8 + Math.sin(t*3.5)*0.5;
-
-                houses.forEach(function(h,i) {
+                // Blink meter LEDs
+                houses.forEach(function(h, i) {
                     if (h.userData.mLed)
-                        h.userData.mLed.material.color.setHex(Math.sin(t*4+i)>0 ? 0x00e676 : 0x004d24);
+                        h.userData.mLed.material.color.setHex(Math.sin(t * 4 + i) > 0 ? 0x00e676 : 0x004d24);
                 });
 
-                people.forEach(function(pg,i) {
-                    var ph = i*0.62;
-                    if (pg.userData.head) pg.userData.head.position.y = 1.58 + Math.sin(t*1.6+ph)*0.04;
-                    if (pg.userData.armL) pg.userData.armL.rotation.z = Math.PI/3.5 + Math.sin(t*2.8+ph)*0.35;
-                    if (pg.userData.armR) pg.userData.armR.rotation.z = -Math.PI/4 + Math.cos(t*2.2+ph)*0.2;
-                    pg.rotation.y = Math.sin(t*0.8+ph)*0.12;
-                });
-
-                clouds.forEach(function(c,i) {
-                    c.position.x += 0.003 * (i%2===0 ? 1 : -1);
-                    if (c.position.x > 26) c.position.x = -26;
-                    if (c.position.x < -26) c.position.x = 26;
-                });
-
-                var ss = 1 + Math.sin(t*2.5)*0.05;
-                sunBall.scale.set(ss,ss,ss);
-
-                lamps.forEach(function(l,i) {
-                    if (l.userData.light) l.userData.light.intensity = 0.55 + Math.sin(t*6+i)*0.08;
-                });
-
-                if (!controls.state || controls.state === -1) world.rotation.y = Math.sin(t*0.1)*0.05;
+                if (!controls.state || controls.state === -1) world.rotation.y = Math.sin(t * 0.1) * 0.05;
 
                 controls.update();
                 renderer.render(scene, camera);
@@ -1823,11 +1489,12 @@
             window.addEventListener('resize', function() {
                 var w = canvas.parentElement.clientWidth;
                 var h = canvas.parentElement.clientHeight;
-                camera.aspect = w/h;
+                camera.aspect = w / h;
                 camera.updateProjectionMatrix();
-                renderer.setSize(w,h);
+                renderer.setSize(w, h);
             });
         })();
+
     </script>
 </body>
 </html>
