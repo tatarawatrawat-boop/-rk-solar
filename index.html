@@ -42,7 +42,11 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: #f8fafc; color: #1e293b; }
         .glass-header { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(226, 232, 240, 0.9); }
-        .hero-gradient { background: radial-gradient(circle at 75% 25%, rgba(254, 243, 199, 0.8) 0%, rgba(224, 242, 254, 0.6) 45%, rgba(248, 250, 252, 1) 100%); }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(240, 249, 255, 0.88) 50%, rgba(255, 247, 237, 0.9) 100%), url('bg-hero.webp');
+            background-size: cover;
+            background-position: center;
+        }
         .sun-glow { box-shadow: 0 20px 50px -10px rgba(249, 115, 22, 0.25); }
         .card-shadow { box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02); }
         .badge-pulse { animation: pulse 2s infinite; }
